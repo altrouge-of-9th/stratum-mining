@@ -59,7 +59,7 @@ class BlockTemplate(halfnode.CBlock):
         if settings.COINDAEMON_Reward == 'POW':
             coinbase = CoinbaseTransactionPOW(self.timestamper, self.coinbaser, data['coinbasevalue'],
                                               data['coinbaseaux']['flags'], data['height'],
-                                              settings.COINBASE_EXTRAS)
+                                              settings.COINBASE_EXTRAS, data.get('rewards'))
         else:
             coinbase = CoinbaseTransactionPOS(self.timestamper, self.coinbaser, data['coinbasevalue'],
                                               data['coinbaseaux']['flags'], data['height'],
